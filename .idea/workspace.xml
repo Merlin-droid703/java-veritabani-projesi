@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb857ff3-83ab-440f-9a06-532b78f189d8" name="Changes" comment="JA-2 Projeye JDBC Driver Ekle">
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/DatabaseConfig.java" afterDir="false" />
+    <list default="true" id="bb857ff3-83ab-440f-9a06-532b78f189d8" name="Changes" comment="JA-3 İlk JDBC Bağlantısı">
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/UserTableManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="melisa/JA-2-Projeye-JDBC-Driver-Ekle" />
+        <entry key="$PROJECT_DIR$" value="melisa/JA-3-İlk-JDBC-Bağlantısı" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +58,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "melisa/JA-3-İlk-JDBC-Bağlantısı",
+    "git-widget-placeholder": "melisa/JA-4-JDBC-ile-Tablo-Oluştur",
     "onboarding.tips.debug.path": "C:/Users/User/OneDrive/Resimler/Masaüstü/VeritabaniProjesi/src/main/java/org/example/Main.java",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
@@ -115,19 +115,28 @@
       <option name="project" value="LOCAL" />
       <updated>1756387816135</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JA-3 İlk JDBC Bağlantısı">
+      <option name="closed" value="true" />
+      <created>1756389267113</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1756389267113</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JA-2 Projeye JDBC Driver Ekle" />
-    <option name="LAST_COMMIT_MESSAGE" value="JA-2 Projeye JDBC Driver Ekle" />
+    <MESSAGE value="JA-3 İlk JDBC Bağlantısı" />
+    <option name="LAST_COMMIT_MESSAGE" value="JA-3 İlk JDBC Bağlantısı" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>14</line>
+          <line>9</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
