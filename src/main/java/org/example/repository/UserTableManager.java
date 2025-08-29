@@ -1,6 +1,6 @@
 package org.example.repository;
 
-import config.DatabaseConfig;
+import org.example.config.DatabaseConfig;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;

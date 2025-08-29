@@ -1,37 +1,31 @@
 package org.example;
 
-import model.User;
-import org.example.repository.UserDAO;
-import org.example.repository.UserTableManager;
-
-import java.util.List;
-
+import org.example.util.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class Main {
     public static void main(String[] args) {
-        UserTableManager tableManager = new UserTableManager();
-        UserDAO userDAO = new UserDAO();
 
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = null;
 
-        tableManager.recreateUserTable();
-        System.out.println("\n--- Yeni Kullanıcılar Kaydediliyor ---");
-        userDAO.save(new User(0, "Ali", "ali@mail.com"));
-        userDAO.save(new User(0, "Veli", "veli@mail.com"));
-        userDAO.save(new User(0, "Ayşe", "ayse@mail.com"));
+        try {
 
+            session = sf.openSession();
+            System.out.println("Hibernate Session başarıyla açıldı!");
+            System.out.println("Bağlantı başarılı. Hibernate kurulumu tamamlandı.");
 
-        System.out.println("\n========== VERİTABANINDAKİ KULLANICILAR ==========");
-        printUsers(userDAO.findAll());
-    }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Hibernate session açılırken bir hata oluştu.");
+        } finally {
+            if (session != null) {
 
-
-    private static void printUsers(List<User> users) {
-        if (users.isEmpty()) {
-            System.out.println("-> Veritabanında hiç kullanıcı bulunamadı.");
-        } else {
-            // Lambda ve forEach ile daha modern bir yazdırma yöntemi
-            users.forEach(user -> System.out.println("-> " + user));
+                session.close();
+                System.out.println("Session kapatıldı.");
+            }
+            HibernateUtil.shutdown();
         }
     }
 }
-
