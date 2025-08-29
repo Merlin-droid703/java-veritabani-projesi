@@ -15,9 +15,23 @@ public class Main {
         userDAO.save(new User("Ayşe", "ayse@mail.com"));
         userDAO.save(new User("Berkan", "berkan@mail.com"));
 
-        System.out.println("\n--- Veritabanındaki Güncel Kullanıcı Listesi ---");
+        System.out.println("\n--- Veritabanındaki Tüm Kullanıcılar ---");
         List<User> allUsers = userDAO.findAll();
         printUsers(allUsers);
+
+        System.out.println("\n--- ID'si 2 Olan Kullanıcı Aranıyor ---");
+        User foundUser = userDAO.findById(2);
+        if (foundUser != null) {
+            System.out.println("Bulunan Kullanıcı: " + foundUser);
+        } else {
+            System.out.println("ID'si 2 olan kullanıcı bulunamadı.");
+        }
+
+        System.out.println("\n--- Var olmayan bir kullanıcı aranıyor (ID=99) ---");
+        User notFoundUser = userDAO.findById(99);
+        if (notFoundUser == null) {
+            System.out.println("ID'si 99 olan kullanıcı beklendiği gibi bulunamadı.");
+        }
 
         HibernateUtil.shutdown();
     }
@@ -30,4 +44,3 @@ public class Main {
         }
     }
 }
-
