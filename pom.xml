@@ -15,10 +15,25 @@
     </properties>
 
     <dependencies>
+        <!-- PostgreSQL JDBC Sürücüsü -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.7.3</version>
+        </dependency>
+
+        <!-- Hibernate Core Bağımlılığı -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.5.2.Final</version>
+        </dependency>
+
+        <!-- Hibernate C3P0 Bağlantı Havuzu Bağımlılığı -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>6.5.2.Final</version>
         </dependency>
     </dependencies>
 </project>

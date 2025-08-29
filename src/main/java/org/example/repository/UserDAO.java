@@ -1,7 +1,7 @@
 package org.example.repository;
 
-import config.DatabaseConfig;
-import model.User;
+import org.example.config.DatabaseConfig;
+import org.example.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
