@@ -1,12 +1,33 @@
 package org.example.model;
 
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "email")
     private String email;
 
-    // Constructor
+    // Hibernate için boş constructor
+    public User() {
+    }
+
+    // Yeni kullanıcı oluşturmak için constructor
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    // Veritabanından okunan veriler için constructor
     public User(int id, String name, String email) {
         this.id = id;
         this.name = name;

@@ -1,31 +1,41 @@
 package org.example;
 
-import org.example.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.example.model.User;
+import org.example.repository.UserDAO;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        UserDAO userDAO = new UserDAO();
 
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session session = null;
 
-        try {
+        System.out.println("--- YENİ KULLANICILAR EKLENİYOR ---");
+        userDAO.save(new User("Ahmet Yılmaz", "ahmet@mail.com"));
+        userDAO.save(new User("Zeynep Kaya", "zeynep@mail.com"));
+        userDAO.save(new User("Mustafa Demir", "mustafa@mail.com"));
 
-            session = sf.openSession();
-            System.out.println("Hibernate Session başarıyla açıldı!");
-            System.out.println("Bağlantı başarılı. Hibernate kurulumu tamamlandı.");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Hibernate session açılırken bir hata oluştu.");
-        } finally {
-            if (session != null) {
+        System.out.println("\n--- TÜM KULLANICILAR ---");
+        List<User> allUsers = userDAO.findAll();
+        allUsers.forEach(System.out::println);
 
-                session.close();
-                System.out.println("Session kapatıldı.");
-            }
-            HibernateUtil.shutdown();
+
+        System.out.println("\n--- KULLANICI GÜNCELLENİYOR ---");
+        User userToUpdate = userDAO.findById(2);
+        if (userToUpdate != null) {
+            userToUpdate.setEmail("zeynep.kaya@newmail.com");
+            userDAO.update(userToUpdate);
+            System.out.println("Güncellenmiş Kullanıcı: " + userDAO.findById(2));
         }
+
+        System.out.println("\n--- KULLANICI SİLİNİYOR ---");
+        userDAO.delete(1);
+
+        System.out.println("\n--- SON KULLANICI LİSTESİ ---");
+        List<User> finalUsers = userDAO.findAll();
+        finalUsers.forEach(System.out::println);
+
+        org.example.util.HibernateUtil.shutdown();
     }
 }
+
