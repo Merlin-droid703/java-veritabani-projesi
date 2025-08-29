@@ -20,21 +20,7 @@ public class Main {
         userDAO.save(new User(0, "Ayşe", "ayse@mail.com"));
 
 
-        System.out.println("\n========== İŞLEM ÖNCESİ LİSTE ==========");
-        printUsers(userDAO.findAll());
-
-
-        System.out.println("\n========== GÜNCELLEME YAPILIYOR ==========");
-
-        userDAO.update(new User(2, "Veli Yılmaz", "veli@mail.com"));
-        System.out.println("\n========== GÜNCELLEME SONRASI LİSTE ==========");
-        printUsers(userDAO.findAll());
-
-
-        System.out.println("\n========== SİLME YAPILIYOR ==========");
-
-        userDAO.delete(1);
-        System.out.println("\n========== SİLME SONRASI LİSTE ==========");
+        System.out.println("\n========== VERİTABANINDAKİ KULLANICILAR ==========");
         printUsers(userDAO.findAll());
     }
 
@@ -43,7 +29,7 @@ public class Main {
         if (users.isEmpty()) {
             System.out.println("-> Veritabanında hiç kullanıcı bulunamadı.");
         } else {
-
+            // Lambda ve forEach ile daha modern bir yazdırma yöntemi
             users.forEach(user -> System.out.println("-> " + user));
         }
     }
